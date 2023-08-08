@@ -3,10 +3,14 @@ const express = require("express");
 const path = require("path");
 const cookieParser = require("cookie-parser");
 const logger = require("morgan");
+const swaggerJsdoc = require("swagger-jsdoc");
+const swaggerUi = require("swagger-ui-express");
+
+
+const options = require("./swagger_conf.json");
 
 const indexRouter = require("./routes/index");
 const userRouter = require("./routes/user");
-
 const app = express();
 
 // view engine setup
@@ -21,6 +25,8 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/", indexRouter);
 app.use("/user", userRouter);
+app.use("/docs", swaggerUi.serve, swaggerUi.setup(swaggerJsdoc(options)));
+
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

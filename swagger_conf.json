@@ -1,0 +1,42 @@
+{
+	"definition": {
+		"openapi": "3.0.1",
+		"info": {
+			"basePath": "/",
+			"title": "Demo of documented Rest API",
+			"version": "1.0.0",
+			"description": "The goal of this repo is to demonstrate how to document a REST API using *Swagger*.",
+			"license": {
+				"name": "MIT",
+				"url": "https://spdx.org/licenses/MIT.html"
+			},
+			"contact": {
+				"name": "Your name",
+				"email": "Your email address"
+			}
+		},
+		"servers": [
+			{
+				"url": "http://localhost:8080/"
+			}
+		],
+		"components": {
+			"securitySchemes": {
+				"bearerAuth": {
+					"type": "http",
+					"scheme": "bearer",
+					"bearerFormat": "JWT"
+				}
+			}
+		}
+	},
+	"security": [
+		{
+			"AccessControlAllowHeaders": []
+		}
+	],
+	"apis": [
+		"./routes/**/*.js"
+	],
+	"swagger": 2.0
+}
