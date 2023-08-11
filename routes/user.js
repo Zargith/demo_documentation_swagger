@@ -54,7 +54,8 @@ router.put("/", function (req, res) {
 		res.status(400).send({ message: "Wrong parameters, shouldn't be empty" });
 		return;
 	}
-
+	
+	// TODO : check if user already exists in database, if not add it
 	res.status(200).send({ message: "User logged in", data: { _id: "1", name: "John Doe", email: "john.doe@email.com" } });
 });
 
@@ -104,6 +105,7 @@ router.patch("/", authService.isAuthenticated, function (req, res) {
 		newDatas.password = req.body.password;
 	}
 
+	// TODO : generate token and send it in "data" too like data: token: "token", user: { ... }
 	res.status(200).send({ message: "User updated" });
 });
 
