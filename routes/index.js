@@ -40,9 +40,6 @@ router.get("/", function (req, res) {
  *                     type: string
  *                     example: OK
 */
-router.get("/", function (req, res) {
-	res.status(200).send({ message: "You can access the documentation at route /docs" });
-});
 router.get("/health", function (req, res) {
 	res.status(200).send({ message: "OK" });
 });

@@ -151,6 +151,7 @@ router.post("/", function (req, res) {
 		return;
 	}
 
+	// TODO : check if user already exists in database, if not add it
 	res.status(201).send({ message: "User created" });
 });
 
@@ -212,6 +213,7 @@ router.put("/", function (req, res) {
 		return;
 	}
 
+	// TODO : generate token and send it in "data" too like data: token: "token", user: { ... }
 	res.status(200).send({ message: "User logged in", data: { _id: "1", name: "John Doe", email: "john.doe@email.com" } });
 });
 
